@@ -258,7 +258,7 @@ trait LoadsFromKubeConfig
         /** @var \RenokiCo\PhpK8s\KubernetesCluster $this */
         $tempFolder = static::$tempFolder ?: sys_get_temp_dir();
 
-        $tempFilePath = $tempFolder.DIRECTORY_SEPARATOR.Str::slug("ctx-{$context}-{$userName}-{$url}")."-{$fileName}";
+        $tempFilePath = $tempFolder.DIRECTORY_SEPARATOR.Str::slug("ctx-{$context}-{$userName}-{$url}")."-" . time() . "-{$fileName}";
 
         if (file_exists($tempFilePath)) {
             return $tempFilePath;
